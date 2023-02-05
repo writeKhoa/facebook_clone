@@ -15,7 +15,6 @@ const that = {
       req.id = id;
       next();
     } catch (error) {
-      console.log("error at middle ware ", error.message);
       return res.status(500).json({ message: "Internal error" });
     }
   },
@@ -50,7 +49,6 @@ const that = {
       req.user = user;
       next();
     } catch (error) {
-      console.log("error at verify token ", error.message);
       return res.status(500).json({ message: "Internal error" });
     }
   },
@@ -131,7 +129,6 @@ const that = {
         next();
       }
     } catch (error) {
-      console.log("error ", error.message);
       return res.status(500).json({ message: "error at server" });
     }
   },
@@ -166,7 +163,6 @@ const that = {
       req.user = isExistAccount;
       next();
     } catch (error) {
-      console.log("error at middle ware ", error.message);
       return res.status(500).json({ message: "Internal Error" });
     }
   },

@@ -28,12 +28,10 @@ const that = {
         return res.status(400).json({ user: {}, type: "notfound" });
       }
       if (userId === id) {
-        console.log("yourself");
         return res.status(200).json({ user, type: "yourself" });
       }
       return res.status(200).json({ user, type: "other" });
     } catch (error) {
-      console.log("error ", error);
       return res.status(500).json({ message: "Internal Error" });
     }
   },
@@ -44,7 +42,6 @@ const that = {
       await newUser.save();
       return res.status(200).json({ message: "Tạo tài khoản thành công" });
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ message: "error at server" });
     }
   },
@@ -66,7 +63,6 @@ const that = {
         })
         .json({ accessToken, user });
     } catch (error) {
-      console.log("error at controller ", error.message);
       return res.status(500).json({ message: error.message });
     }
   },
@@ -89,7 +85,6 @@ const that = {
         })
         .json({ accessToken, user });
     } catch (error) {
-      console.log("error at controller ", error.message);
       return res.status(500).json({ message: "Internal error" });
     }
   },
@@ -101,7 +96,6 @@ const that = {
 
       return res.status(200).json({ accessToken });
     } catch (error) {
-      console.log("error at controller ", error.message);
       return res.status(500).json({ message: "Internal error" });
     }
   },
@@ -115,7 +109,6 @@ const that = {
         .clearCookie("refreshToken")
         .json({ message: "logout thành công" });
     } catch (error) {
-      console.log("error at controller ", error.message);
       return res.status(500).json({ message: "Internal error" });
     }
   },
