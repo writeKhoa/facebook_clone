@@ -1,0 +1,49 @@
+:root {
+  --thumb-secondary: #c0c0c0;
+  --track-secondary: #00000010;
+
+  --thumb-secondary-dark: #676767;
+  --track-secondary-dark: #ffffff10;
+}
+
+.secondary-scrollbar {
+  overscroll-behavior: contain;
+}
+
+.secondary-scrollbar::-webkit-scrollbar {
+  width: 16px;
+}
+
+.secondary-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.secondary-scrollbar::-webkit-scrollbar-track:hover {
+  background: var(--track-secondary);
+}
+
+.secondary-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 999px;
+}
+
+.secondary-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: var(--thumb-secondary);
+  background-clip: content-box;
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+/* todo dark mode */
+.dark .secondary-scrollbar::-webkit-scrollbar-track:hover {
+  background: var(--track-secondary-dark);
+}
+
+.dark .secondary-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: var(--thumb-secondary-dark);
+  background-clip: content-box;
+  border-width: 4px;
+  border-style: solid;
+  border-color:  transparent;
+}

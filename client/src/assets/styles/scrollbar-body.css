@@ -1,0 +1,39 @@
+:root {
+  --track: #f1f1f1;
+  --thumb: #c0c0c0;
+  --thumb-hover: #00000050;
+
+  --track-dark: #424242;
+  --thumb-dark: #676767;
+  --thumb-hover-dark: #888888;
+}
+
+body::-webkit-scrollbar {
+  width: 16px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--track);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--thumb);
+  border-radius: 0px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--thumb-hover);
+}
+
+/*todo --------- dark ------------- */
+.dark body::-webkit-scrollbar-track {
+  background: var(--track-dark);
+}
+
+.dark body::-webkit-scrollbar-thumb {
+  background: var(--thumb-dark);
+}
+
+.dark body::-webkit-scrollbar-thumb:hover {
+  background: var(--thumb-hover-dark);
+}
