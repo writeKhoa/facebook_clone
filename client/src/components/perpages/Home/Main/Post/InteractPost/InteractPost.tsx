@@ -21,11 +21,11 @@ const InteractPost: FC<Props> = ({ likeCount, commentCount, shareCount }) => {
             <span>{processCount(likeCount)}</span>
           </div>
           <div>
-            <span className="mr-1 ">{commentCount}</span>
+            <span className="mr-1 ">{processCount(commentCount)}</span>
             <span>bình luận</span>
 
             <span className="ml-2 mr-1">
-              {shareCount > 0 ? `${shareCount} chia sẻ` : ""}
+              {shareCount > 0 ? `${processCount(shareCount)} chia sẻ` : ""}
             </span>
           </div>
         </div>

@@ -1,37 +1,20 @@
-const MultiIcon =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon_cqxtjj.png";
-const MultiIcon2 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304923/imgs_common/MultiIcon2_vodwlb.png";
-const MultiIcon3 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304923/imgs_common/MultiIcon3_whjq7x.png";
-const MultiIcon4 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304923/imgs_common/MultiIcon4_qss4a0.png";
-const MultiIcon5 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304923/imgs_common/MultiIcon5_syntop.png";
-const MultiIcon6 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon6_zuf4kl.png";
-const MultiIcon7 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon7_hwgwzl.png";
-const MultiIcon8 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon8_cr7gxz.png";
-const MultiIcon9 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon9_uechrf.png";
-const MultiIcon10 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon10_enelml.png";
-const MultiIcon11 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon11_n1g597.png";
-const MultiIcon12 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon12_dxbn5b.png";
-const MultiIcon13 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon13_hj9jgy.png";
-const MultiIcon14 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon14_kxfpln.png";
-const MultiIcon15 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304924/imgs_common/MultiIcon15_hcpidt.png";
-const MultiIcon16 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304925/imgs_common/MultiIcon16_r1afj6.png";
-const MultiIcon17 =
-  "https://res.cloudinary.com/dojxk4gav/image/upload/v1675304925/imgs_common/MultiIcon17_u7vc9n.png";
+import MultiIcon from "./MultiIcon.png";
+import MultiIcon2 from "./MultiIcon2.png";
+import MultiIcon3 from "./MultiIcon3.png";
+import MultiIcon4 from "./MultiIcon4.png";
+import MultiIcon5 from "./MultiIcon5.png";
+import MultiIcon6 from "./MultiIcon6.png";
+import MultiIcon7 from "./MultiIcon7.png";
+import MultiIcon8 from "./MultiIcon8.png";
+import MultiIcon9 from "./MultiIcon9.png";
+import MultiIcon10 from "./MultiIcon10.png";
+import MultiIcon11 from "./MultiIcon11.png";
+import MultiIcon12 from "./MultiIcon11.png";
+import MultiIcon13 from "./MultiIcon12.png";
+import MultiIcon14 from "./MultiIcon13.png";
+import MultiIcon15 from "./MultiIcon15.png";
+import MultiIcon16 from "./MultiIcon16.png";
+import MultiIcon17 from "./MultiIcon17.png";
 
 export {
   MultiIcon,

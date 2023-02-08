@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import Input from "@/components/commons/Authenticate/Input";
+import Input from "@/components/commons/Input";
 import { EyeVisibleIcon, EyeInvisibleIcon } from "@/components/commons/Icons";
 import { Button } from "@/components/commons";
 import { Link } from "react-router-dom";

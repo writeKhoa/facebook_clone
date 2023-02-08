@@ -1,9 +1,0 @@
-git init
-
-git remote add origin
-
-git add .
-
-git commit "text"
-
-git push

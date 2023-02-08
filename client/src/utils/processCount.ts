@@ -8,7 +8,7 @@ const oneMillion: number = 1000000;
 export const processCount = (count: number) => {
   if (count > oneThousand && count < oneThousand * 10) {
     return `${decimalAdjust(count, oneThousand, 1)}K`;
-  } else if (count > oneThousand * 10 && count < oneThousand * 100) {
+  } else if (count > oneThousand * 10 && count < oneThousand * 1000) {
     return `${decimalAdjust(count, oneThousand, 0)}K`;
   } else if (count > oneMillion && count < oneMillion * 10) {
     return `${decimalAdjust(count, oneMillion, 1)} triệu`;

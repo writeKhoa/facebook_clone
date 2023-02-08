@@ -1,6 +1,6 @@
 import { ProccessRegister } from "@/assets/images";
 import { Button, Modal } from "@/components/commons";
-import Input from "@/components/commons/Authenticate/Input";
+import Input from "@/components/commons/Input";
 import { QuestionIcon } from "@/components/commons/Icons";
 import { useAuth } from "@/hooks";
 import { payloadRegister } from "@/models";

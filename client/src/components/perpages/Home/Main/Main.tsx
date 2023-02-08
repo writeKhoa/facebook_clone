@@ -51,7 +51,7 @@ const Main = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="w-full grow px-8 py-2 max1260:px-0 bg-space dark:bg-spaceDark">
+    <div className="w-full bg-space dark:bg-spaceDark">
       <div className="w-full max-w-[590px] mx-auto mt-2">
         <CreatePost
           avatarUrl={user?.avatarUrl}

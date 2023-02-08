@@ -22,7 +22,11 @@ const NavRight = () => {
   };
 
   const handleClose = () => {
-    setIsOpen([0, isOpen[0]]);
+    if (isOpen[0] === 0) {
+      return;
+    } else {
+      setIsOpen([0, isOpen[0]]);
+    }
   };
 
   const dialogRef = useRef<HTMLDivElement | null>(null);
@@ -31,17 +35,7 @@ const NavRight = () => {
   const notifyRef = useRef<HTMLDivElement | null>(null);
   const profileRef = useRef<HTMLDivElement | null>(null);
 
-  useClickOutside(
-    dialogRef,
-    () => {
-      if (isOpen[0] === 0) {
-        return;
-      } else {
-        handleClose();
-      }
-    },
-    [isOpen]
-  );
+  useClickOutside(dialogRef, handleClose, [isOpen]);
 
   return (
     <div className="flex items-center pr-4 pl-1 -ml-2 h-full">
