@@ -1,10 +1,8 @@
 import { createContext } from "react";
-import { payloadRegister, payloadLogin } from "@/models";
+import { payloadRegister, payloadLogin, User } from "@/models";
 
 export interface AuthContextProps {
-  user: any;
-  isLoading: boolean;
-  isReLogin: boolean;
+  user: User | undefined;
   register: (data: payloadRegister) => Promise<void>;
   login: (data: payloadLogin) => Promise<void>;
   reLogin: () => Promise<void>;
@@ -12,10 +10,12 @@ export interface AuthContextProps {
   makeRequestWithAuth: (
     method: "get" | "post" | "put" | "delete",
     url: string,
-    payload: any
+    payload?: any,
+    signal?: any
   ) => Promise<any>;
+  onChangeAvatar: (avatarUrl: string, mediumAvatarUrl: string) => void;
 }
 
-export const AuthContext = createContext<AuthContextProps | null>(null);
+const AuthContext = createContext<AuthContextProps | null>(null);
 
-
+export { AuthContext };

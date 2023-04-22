@@ -1,11 +1,11 @@
-import { Logo } from "@/assets/svg";
+import { LogoItroSvg } from "@/assets";
 
 const Intro = () => {
   return (
     <div>
       <div className="pt-[112px] pb-5 max900:pt-0 max900:flex max900:flex-col max900:items-center">
         <img
-          src={Logo}
+          src={LogoItroSvg}
           alt="logo facebook"
           className="-m-7 w-[300px] h-[106px]"
         />

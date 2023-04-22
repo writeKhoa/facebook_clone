@@ -1,11 +1,7 @@
 import {
-  MultiIcon2,
   MultiIcon3,
-  MultiIcon4,
   MultiIcon5,
   MultiIcon6,
-  MultiIcon7,
-  MultiIcon8,
   MultiIcon9,
 } from "@/assets/images";
 
@@ -15,9 +11,9 @@ export const SettingIcon = () => {
       data-visualcompletion="css-img"
       className="filter-black dark:filter-white"
       style={{
-        backgroundImage: `url(${MultiIcon2})`,
-        backgroundPosition: "0px -288px",
-        backgroundSize: "74px 360px",
+        backgroundImage: `url(${MultiIcon9})`,
+        backgroundPosition: "-65px -51px",
+        backgroundSize: "158px 158px",
         width: "20px",
         height: "20px",
         backgroundRepeat: "no-repeat",
@@ -47,19 +43,26 @@ export const SupportIcon = () => {
 
 export const DisplayIcon = () => {
   return (
-    <i
-      data-visualcompletion="css-img"
-      className="filter-black dark:filter-white"
-      style={{
-        backgroundImage: `url(${MultiIcon4})`,
-        backgroundPosition: "0px -420px",
-        backgroundSize: "34px 624px",
-        width: "20px",
-        height: "20px",
-        backgroundRepeat: "no-repeat",
-        display: "inline-block",
-      }}
-    ></i>
+    <span className="text-primaryIcon dark:text-primaryIconDark">
+      <svg
+        stroke="currentColor"
+        fill="none"
+        strokeWidth="4"
+        viewBox="0 0 24 24"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        height="20px"
+        width="20px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M12 1.992a10 10 0 1 0 9.236 13.838c.341 -.82 -.476 -1.644 -1.298 -1.31a6.5 6.5 0 0 1 -6.864 -10.787l.077 -.08c.551 -.63 .113 -1.653 -.758 -1.653h-.266l-.068 -.006l-.06 -.002z"
+          strokeWidth="0"
+          fill="currentColor"
+        ></path>
+      </svg>
+    </span>
   );
 };
 
@@ -137,19 +140,19 @@ export const PrivacyCenterIcon = () => {
 
 export const ActivityLogIcon = () => {
   return (
-    <i
-      data-visualcompletion="css-img"
-      className="filter-black dark:filter-white"
-      style={{
-        backgroundImage: `url(${MultiIcon2})`,
-        backgroundPosition: "-22px -222px",
-        backgroundSize: "74px 360px",
-        width: "20px",
-        height: "20px",
-        backgroundRepeat: "no-repeat",
-        display: "inline-block",
-      }}
-    ></i>
+    <span className="text-primaryIcon dark:text-primaryIconDark">
+      <svg
+        stroke="currentColor"
+        fill="currentColor"
+        strokeWidth="0"
+        viewBox="0 0 1024 1024"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>
+      </svg>
+    </span>
   );
 };
 
@@ -249,9 +252,9 @@ export const BackIcon = () => {
       data-visualcompletion="css-img"
       className="filter-black dark:filter-white"
       style={{
-        backgroundImage: `url(${MultiIcon7})`,
-        backgroundPosition: "-78px -62px",
-        backgroundSize: "190px 182px",
+        backgroundImage: `url(${MultiIcon9})`,
+        backgroundPosition: "-126px -62px",
+        backgroundSize: "190px 190px",
         width: "20px",
         height: "20px",
         backgroundRepeat: "no-repeat",
@@ -267,9 +270,9 @@ export const ForwardIcon = () => {
       data-visualcompletion="css-img"
       className="filter-black dark:filter-white"
       style={{
-        backgroundImage: `url(${MultiIcon8})`,
-        backgroundPosition: "0px -26px",
-        backgroundSize: "26px 1440px",
+        backgroundImage: `url(${MultiIcon9})`,
+        backgroundPosition: "-217px -124px",
+        backgroundSize: "263px 263px",
         width: "24px",
         height: "24px",
         backgroundRepeat: "no-repeat",

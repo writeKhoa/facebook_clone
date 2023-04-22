@@ -1,72 +1,21 @@
 import {
   NewCallIcon,
-  SearchIcon, ThreeDotIcon
+  FindIcon,
+  ThreeDotIcon,
 } from "@/components/commons/Icons";
-import { ItemFriend } from "./ItemFriend";
+import { ProfileProps, ShortProfileItem } from "@/models";
+import { FC, useEffect, useState } from "react";
+import { ContactItem } from "./sub";
 
-const Complementary = () => {
-  const friends = [
-    {
-      fullName: "Minh Tâm",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Hữu Bằng",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Vũ Gia",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Thành Hải",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Phan Hoa",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Yến Nhi",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Nhật Thắm",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Lưu Quyết Thắng",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Đào Minh Khoa",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Gia Uyên",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Nguyễn Thanh Tùng",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Võ Thiên Tài",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Diễm Trần",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Huân Quách",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-    {
-      fullName: "Minh Tâm",
-      avatarUrl: "https://via.placeholder.com/150/d32776",
-    },
-  ];
+interface Props {
+  contactsProps: ShortProfileItem[];
+}
+
+const Complementary: FC<Props> = ({ contactsProps }) => {
+  const [contacts, setContacts] = useState<ShortProfileItem[]>([]);
+  useEffect(() => {
+    setContacts([...contactsProps]);
+  }, [contactsProps]);
   return (
     <div className="overflow-y-auto">
       <div className="flex items-center pt-5 pb-1 px-4">
@@ -84,7 +33,7 @@ const Complementary = () => {
             </span>
           </div>
           <div className="flex items-center justify-center w-8 h-8 mx-1 rounded-full text-primaryIcon dark:text-primaryIconDark hover:bg-black/10 dark:hover:bg-white/10 cursor-pointer">
-            <SearchIcon />
+            <FindIcon />
           </div>
           <div className="flex items-center justify-center w-8 h-8 mx-1 rounded-full text-primaryIcon dark:text-primaryIconDark hover:bg-black/10 dark:hover:bg-white/10 cursor-pointer">
             <span>
@@ -95,12 +44,17 @@ const Complementary = () => {
       </div>
 
       <div className="py-2">
-        {friends.map((friend, index) => {
-          const { fullName, avatarUrl } = friend;
-          return (
-            <ItemFriend key={index} fullName={fullName} avatarUrl={avatarUrl} />
-          );
-        })}
+        {contacts.length > 0 &&
+          contacts.map((friend, index) => {
+            const { fullName, avatarUrl } = friend;
+            return (
+              <ContactItem
+                key={index}
+                fullName={fullName}
+                avatarUrl={avatarUrl}
+              />
+            );
+          })}
       </div>
     </div>
   );

@@ -1,10 +1,17 @@
+import { Route, Routes } from "react-router-dom";
+import routeOutletFriends from "../configs/config.outlet.friends";
+
+
 const OutletFriends = () => {
   return (
-    <div className="text-center mt-5">
-      <h2 className="text-1720 text-primaryText dark:text-primaryTextDark">
-        Not develop
-      </h2>
-    </div>
+    <>
+      <Routes>
+        {routeOutletFriends.map((component, index) => {
+          const { path, Component } = component;
+          return <Route key={index} path={path} element={<Component />} />;
+        })}
+      </Routes>
+    </>
   );
 };
 

@@ -1,9 +1,11 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
 const jwt = require("jsonwebtoken");
+
+dotenv.config();
 
 const generateAccessToken = async (id) => {
   return jwt.sign({ id }, process.env.KEY_ACCESS_TOKEN, {
-    expiresIn: "10m",
+    expiresIn: "1h",
   });
 };
 

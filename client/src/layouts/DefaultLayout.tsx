@@ -8,15 +8,11 @@ interface Props {
 }
 
 const DefaultLayout: FC<Props> = ({ children, isPrivate }) => {
-  const { isLoading, user } = useAuth();
-
-  if (isLoading) {
-    return <div className="w-screen h-screen bg-space dark:bg-spaceDark"></div>;
-  }
+  const { user } = useAuth();
 
   if (
-    (isPrivate && user === null && !isLoading) ||
-    (isPrivate && user === undefined && !isLoading)
+    (isPrivate && user === null) ||
+    (isPrivate && user === undefined)
   ) {
     return <Authenticate />;
   }

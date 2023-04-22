@@ -1,4 +1,5 @@
 export * from "./localstorage";
-export * from "./timeSince";
-export * from "./processCount";
 export * from "./timeHover";
+export * from "./wait";
+export * from "./generateRandomId";
+export * from "./posts.calculate";

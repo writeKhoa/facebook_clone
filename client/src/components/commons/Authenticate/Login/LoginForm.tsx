@@ -32,10 +32,13 @@ const LoginForm: FC<Props> = ({ onOpenRegister }) => {
       if (!account.account || !account.password) {
         throw "Vui lòng điền đầy đủ các ttrường";
       }
+      console.log('login');
       await login(account);
     } catch (error) {
-      if (typeof error === "string") {
-        setErrorMsg(error);
+      const myError: any = error;
+
+      if (typeof myError?.response?.data?.error === "string") {
+        setErrorMsg(myError?.response?.data?.error);
       }
     }
   };

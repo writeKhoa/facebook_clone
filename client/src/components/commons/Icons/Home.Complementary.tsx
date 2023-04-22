@@ -1,3 +1,10 @@
+import { FC } from "react";
+
+interface Props {
+  width?: number;
+  height?: number;
+}
+
 export const NewCallIcon = () => {
   return (
     <svg fill="currentColor" viewBox="0 0 16 16" width="1em" height="1em">
@@ -8,9 +15,9 @@ export const NewCallIcon = () => {
   );
 };
 
-export const SearchIcon = () => {
+export const FindIcon: FC<Props> = ({ width = 16, height = 16 }) => {
   return (
-    <svg fill="currentColor" viewBox="0 0 16 16" width="1em" height="1em">
+    <svg fill="currentColor" viewBox="0 0 16 16" width={width} height={height}>
       <g fillRule="evenodd" transform="translate(-448 -544)">
         <g fillRule="nonzero">
           <path
@@ -34,4 +41,3 @@ export const SearchIcon = () => {
     </svg>
   );
 };
-

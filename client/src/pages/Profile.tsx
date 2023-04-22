@@ -1,65 +1,58 @@
 import axiosClient from "@/api";
 import {
-  FriendProfile,
   NotFound,
   OtherProfile,
-  OutletProfile,
   SelfProfile,
   ViewAsGuest,
 } from "@/components/perpages/Profile";
 import { useAuth } from "@/hooks";
-import { PageProps } from "@/models";
+import { PageProps, ProfileProps } from "@/models";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Profile: PageProps = () => {
-  const {
-    user: userLogin,
-    makeRequestWithAuth,
-    isLoading: isWaiting,
-  } = useAuth();
+  const { user, makeRequestWithAuth } = useAuth();
   const { id } = useParams();
   const [title, setTitle] = useState("");
-  const [user, setUser] = useState<any>({});
+  const [profile, setProfile] = useState<ProfileProps | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [typeProfile, setTypeProfile] = useState("");
+  const [mode, setMode] = useState<number>(-99);
 
   useEffect(() => {
+    const abortController: AbortController | null = new AbortController();
     const getProfile = async () => {
       try {
         setIsLoading(true);
-        if (userLogin) {
+        if (user) {
           const data = await makeRequestWithAuth(
             "get",
-            `/api/v1/users/${id}`,
-            {}
+            `/api/v1/users/find-with-auth/${id}`
           );
-          console.log("data ", data);
-          setUser(data.user);
-          setTypeProfile(data.type);
+          setProfile(data.__user);
+          setMode(data.__mode);
           if (!user) {
             setTitle("");
           }
         } else {
           const data: any = await axiosClient.get(`/api/v1/users/find/${id}`);
-          setUser(data.user);
-          setTypeProfile(data.type);
+          setProfile(data.__user);
+          setMode(data.__mode);
           if (!user) {
             setTitle("");
           }
         }
       } catch (error) {
-        setTypeProfile("notfound");
-        setUser(null);
+        setMode(-1);
+        setProfile(null);
       } finally {
         setIsLoading(false);
       }
     };
-    if (!isWaiting) {
-      getProfile();
-    }
-    const controller = new AbortController();
-    return () => controller.abort();
+
+    getProfile();
+    return () => {
+      abortController.abort();
+    };
   }, [id]);
 
   useEffect(() => {
@@ -76,43 +69,17 @@ const Profile: PageProps = () => {
     );
   }
 
-  switch (typeProfile) {
-    case "yourself":
-      return (
-        <>
-          <SelfProfile user={user} />
-          <OutletProfile />
-        </>
-      );
-    case "other":
-      return (
-        <>
-          <OtherProfile user={user} />
-          <OutletProfile />
-        </>
-      );
-    case "friend":
-      return (
-        <>
-          <FriendProfile user={user} />
-          <OutletProfile />
-        </>
-      );
-    case "notlogin":
-      return (
-        <>
-          <ViewAsGuest user={user} />
-          <OutletProfile />
-        </>
-      );
-    case "notfound":
-      return (
-        <>
-          <NotFound />
-        </>
-      );
+  switch (mode) {
+    case -1:
+      return <NotFound />;
+    case 0:
+      return <ViewAsGuest user={profile as ProfileProps} />;
+    case 1:
+      return <SelfProfile user={profile as ProfileProps} />;
+    case -99:
+      return <div className="w-full h-full bg-space dark:bg-spaceDark"></div>;
     default:
-      return <></>;
+      return <OtherProfile profile={profile as ProfileProps} mode={mode} />;
   }
 };
 

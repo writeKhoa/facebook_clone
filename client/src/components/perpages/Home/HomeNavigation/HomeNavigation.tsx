@@ -2,16 +2,27 @@ import { DownIcon, UpIcon } from "@/components/commons/Icons";
 import { routesHomeNavLeftFull, routesHomeNavLeftPart } from "@/configs";
 import { useAuth } from "@/hooks";
 import { useState } from "react";
-import { ItemFunc, ItemNavigation, ItemUser } from "./ItemNavigation";
+import { UserItem, NavItem, FuncItem } from "./sub";
 
 const HomeNavigation = () => {
   const { user } = useAuth();
   const [isHidden, setIsHidden] = useState(true);
+  const [isFirstOpen, setIsFirstOpen] = useState<boolean>(true);
+
+  const handleOpen = () => {
+    setIsHidden(false);
+    if (isFirstOpen) {
+      setTimeout(() => {
+        setIsFirstOpen(false);
+      }, 350);
+    };
+  }
+  const handleClose = () => setIsHidden(true);
   return (
-    <div className="h-notHeader py-4">
-      <div className="ml-2">
+    <div className="h-notHeader py-4 transition-all duration-75">
+      <div className="px-2">
         {user && (
-          <ItemUser
+          <UserItem
             path={`/${user?._id}`}
             src={user?.avatarUrl}
             title={`${user?.fullName}`}
@@ -22,41 +33,39 @@ const HomeNavigation = () => {
         {routesHomeNavLeftPart.map((route, index) => {
           const { path, imgSrc, title } = route;
           return (
-            <li key={index} className="w-full">
-              <div className="pl-2">
-                <ItemNavigation src={imgSrc} title={title} path={path} />
-              </div>
+            <li key={index} className="w-full px-2">
+              <NavItem src={imgSrc} title={title} path={path} />
             </li>
           );
         })}
       </ul>
-      {isHidden ? null : (
+      {isHidden || isFirstOpen ? null : (
         <ul className="flex flex-col duration-200 transition-all">
           {routesHomeNavLeftFull.map((route, index) => {
             const { path, imgSrc, title } = route;
             return (
-              <li key={index}>
-                <div className="pl-2">
-                  <ItemNavigation src={imgSrc} title={title} path={path} />
-                </div>
+              <li key={index} className="px-2">
+                <NavItem src={imgSrc} title={title} path={path} />
               </li>
             );
           })}
         </ul>
       )}
 
-      <div className="pl-2">
-        {isHidden ? (
-          <ItemFunc
+      <div className="px-2">
+        {isHidden || isFirstOpen ? (
+          <FuncItem
             Icon={DownIcon}
             title="Xem thêm"
-            handleHidden={() => setIsHidden(false)}
+            isLoading={isFirstOpen && !isHidden}
+            handleHidden={handleOpen}
           />
         ) : (
-          <ItemFunc
+          <FuncItem
             Icon={UpIcon}
             title="Ẩn bớt"
-            handleHidden={() => setIsHidden(true)}
+            isLoading={false}
+            handleHidden={handleClose}
           />
         )}
       </div>

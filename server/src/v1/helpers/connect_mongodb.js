@@ -1,7 +1,12 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
-const mongUri = process.env.MONGO_URI || "mongodb://localhost:27017/facebook";
+dotenv.config();
+
+const mongUri =
+  process.env.NODE_ENV === "development"
+    ? "mongodb://localhost:27017/facebook"
+    : process.env.MONGO_URI;
 
 const connectMongodb = async () => {
   try {

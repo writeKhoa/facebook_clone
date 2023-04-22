@@ -18,7 +18,7 @@ export const timeHover = (timeInput: number) => {
   const hour = time.getHours();
   const minute = time.getMinutes();
 
-  return `${days[day]}, ${date} tháng ${
+  return `${days[day - 1]}, ${date} tháng ${
     month + 1
   }, ${year} lúc ${hour}:${minute}`;
 };

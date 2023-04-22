@@ -1,13 +1,11 @@
 import {
-  MultiIconProfile1,
-  MultiIconProfile2,
-  AddPost,
-  CustomeProfile,
-  MultiIcon14,
   MultiIcon10,
+  MultiIcon14,
+  MultiIcon6,
+  MultiIcon9,
 } from "@/assets/images";
-import { NotFoundSvg } from "@/assets/svg";
-import { Message, IsFriend, AddFriend, Find } from "@/assets/images";
+import { NotFoundSvg } from "@/assets/svgs";
+import { FC } from "react";
 
 export const CameraBackgroundProfileIcon = () => {
   return (
@@ -44,95 +42,14 @@ export const CameraAvatarProfileIcon = () => {
   );
 };
 
-export const ManagePostIcon = () => {
+interface Props {
+  isDisabled?: boolean;
+}
+export const PictureVideoIcon: FC<Props> = ({ isDisabled = false }) => {
   return (
     <i
       data-visualcompletion="css-img"
-      style={{
-        backgroundImage: `url(${MultiIconProfile2})`,
-        backgroundPosition: "0px -244px",
-        backgroundSize: "26px 290px",
-        width: "16px",
-        height: "16px",
-        backgroundRepeat: "no-repeat",
-        display: "inline-block",
-      }}
-    ></i>
-  );
-};
-
-export const FilterPostIcon = () => {
-  return (
-    <i
-      data-visualcompletion="css-img"
-      style={{
-        backgroundImage: `url(${MultiIconProfile2})`,
-        backgroundPosition: "0px -244px",
-        backgroundSize: "26px 290px",
-        width: "16px",
-        height: "16px",
-        backgroundRepeat: "no-repeat",
-        display: "inline-block",
-      }}
-    ></i>
-  );
-};
-
-export const ListViewIcon = () => {
-  return (
-    <i
-      data-visualcompletion="css-img"
-      style={{
-        backgroundImage: `url(${MultiIconProfile2})`,
-        backgroundPosition: "0px -208px",
-        backgroundSize: "26px 290px",
-        width: "16px",
-        height: "16px",
-        backgroundRepeat: "no-repeat",
-        display: "inline-block",
-      }}
-    ></i>
-  );
-};
-
-export const GridViewIcon = () => {
-  return (
-    <i
-      data-visualcompletion="css-img"
-      style={{
-        backgroundImage: `url(${MultiIconProfile2})`,
-        backgroundPosition: "0px -154px",
-        backgroundSize: "26px 290px",
-        width: "16px",
-        height: "16px",
-        backgroundRepeat: "no-repeat",
-        display: "inline-block",
-      }}
-    ></i>
-  );
-};
-
-export const LiveVideoIcon = () => {
-  return (
-    <i
-      data-visualcompletion="css-img"
-      style={{
-        backgroundImage: `url(${MultiIconProfile1})`,
-        backgroundPosition: "0px 0px",
-        backgroundSize: "26px 518px",
-        width: "24px",
-        height: "24px",
-        backgroundRepeat: "no-repeat",
-        display: "inline-block",
-      }}
-    ></i>
-  );
-};
-
-export const PictureVideoIcon = () => {
-  return (
-    <i
-      data-visualcompletion="css-img"
+      className={`${isDisabled ? "filter-disabled" : ""}`}
       style={{
         backgroundImage: `url(${MultiIcon14})`,
         backgroundPosition: "0px -182px",
@@ -146,44 +63,29 @@ export const PictureVideoIcon = () => {
   );
 };
 
-export const EventIcon = () => {
-  return (
-    <i
-      data-visualcompletion="css-img"
-      style={{
-        backgroundImage: `url(${MultiIconProfile1})`,
-        backgroundPosition: "0px -274px",
-        backgroundSize: "26px 518px",
-        width: "20px",
-        height: "20px",
-        backgroundRepeat: "no-repeat",
-        display: "inline-block",
-      }}
-    ></i>
-  );
-};
-
 export const AddPostIcon = () => {
   return (
-    <img
-      className="filter-white"
-      src={AddPost}
-      alt=""
-      height="16"
-      width="16"
-    ></img>
+    <div className="inline-block text-1214">
+      <span className="text-primaryIconDark text-2024 font-semibold">+</span>
+    </div>
   );
 };
 
 export const CustomeProfileIcon = () => {
   return (
-    <img
-      src={CustomeProfile}
+    <i
+      data-visualcompletion="css-img"
       className="filter-black dark:filter-white"
-      alt=""
-      height="16"
-      width="16"
-    ></img>
+      style={{
+        backgroundImage: `url(${MultiIcon6})`,
+        backgroundPosition: "0px -721px",
+        backgroundSize: "21px 1190px",
+        width: "16px",
+        height: "16px",
+        backgroundRepeat: "no-repeat",
+        display: "inline-block",
+      }}
+    ></i>
   );
 };
 
@@ -210,35 +112,109 @@ export const ThreeDotIcon = () => {
 };
 
 export const MessageIcon = () => {
-  return <img src={Message} alt="message" className="filter-white w-4 h-4" />;
-};
-
-export const IsFriendIcon = () => {
   return (
-    <img
-      src={IsFriend}
-      alt="is friend"
-      className="filter-black dark:filter-white w-4 h-4"
-    />
+    <i
+      data-visualcompletion="css-img"
+      className="filter-black dark:filter-white"
+      style={{
+        backgroundImage: `url(${MultiIcon9})`,
+        backgroundPosition: "-128px -132px",
+        backgroundSize: "190px 190px",
+        width: "16px",
+        height: "16px",
+        backgroundRepeat: "no-repeat",
+        display: "inline-block",
+      }}
+    ></i>
   );
 };
 
 export const AddFriendIcon = () => {
   return (
-    <img
-      src={AddFriend}
-      alt="add friend"
-      className="filter-black dark:filter-white w-4 h-4"
-    />
+    <i
+      data-visualcompletion="css-img"
+      className="filter-black dark:filter-white"
+      style={{
+        backgroundImage: `url(${MultiIcon10})`,
+        backgroundPosition: "1px -179px",
+        backgroundSize: "19px 482px",
+        width: "16px",
+        height: "16px",
+        backgroundRepeat: "no-repeat",
+        display: "inline-block",
+      }}
+    ></i>
   );
 };
 
-export const FindIcon = () => {
+export const CancelAddFriendIcon = () => {
   return (
-    <img
-      src={Find}
-      alt="find content"
-      className="filter-black dark:filter-white w-4 h-4"
-    />
+    <i
+      data-visualcompletion="css-img"
+      className="filter-black dark:filter-white"
+      style={{
+        backgroundImage: `url(${MultiIcon10})`,
+        backgroundPosition: "1px -211px",
+        backgroundSize: "19px 482px",
+        width: "16px",
+        height: "16px",
+        backgroundRepeat: "no-repeat",
+        display: "inline-block",
+      }}
+    ></i>
+  );
+};
+
+export const ResponseRequestMakeFriendIcon = () => {
+  return (
+    <i
+      data-visualcompletion="css-img"
+      className="filter-black dark:filter-white"
+      style={{
+        backgroundImage: `url(${MultiIcon10})`,
+        backgroundPosition: "1px -195px",
+        backgroundSize: "19px 482px",
+        width: "16px",
+        height: "16px",
+        backgroundRepeat: "no-repeat",
+        display: "inline-block",
+      }}
+    ></i>
+  );
+};
+
+export const UnFriendIcon = () => {
+  return (
+    <i
+      data-visualcompletion="css-img"
+      className="filter-black dark:filter-white"
+      style={{
+        backgroundImage: `url(${MultiIcon10})`,
+        backgroundPosition: "0px -750px",
+        backgroundSize: "32px 836px",
+        width: "20px",
+        height: "20px",
+        backgroundRepeat: "no-repeat",
+        display: "inline-block",
+      }}
+    ></i>
+  );
+};
+
+export const IsFriendIcon = () => {
+  return (
+    <i
+      data-visualcompletion="css-img"
+      className="filter-black dark:filter-white"
+      style={{
+        backgroundImage: `url(${MultiIcon10})`,
+        backgroundPosition: "1px -195px",
+        backgroundSize: "19px 482px",
+        width: "16px",
+        height: "16px",
+        backgroundRepeat: "no-repeat",
+        display: "inline-block",
+      }}
+    ></i>
   );
 };

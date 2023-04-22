@@ -1,11 +1,16 @@
 const express = require("express");
-const route = express.Router();
 const { usersMiddlewares: middlewares } = require("../middlewares");
 const { usersController: controller } = require("../controllers");
+const { upload } = require("../utils/uploadImageLocal");
+const route = express.Router();
 
-route.get("/find/:userId", controller.findNotLogin);
+route.get("/find/:userId", controller.find);
 
-route.get("/:userId", middlewares.verifyAccessToken, controller.findUser);
+route.get(
+  "/find-with-auth/:userId",
+  middlewares.verifyAccessToken,
+  controller.findWithAuth
+);
 
 route.post("/register", middlewares.validateRegister, controller.register);
 
@@ -19,6 +24,17 @@ route.post(
   controller.getNewAccessToken
 );
 
+route.post("/update", middlewares.verifyAccessToken, controller.updateInfo);
+
 route.post("/logout", middlewares.verifyRefreshToken, controller.logout);
+
+route.post(
+  "/update-avatar",
+  middlewares.verifyAccessToken,
+  upload.single("image"),
+  controller.updateAvatar
+);
+
+route.get("/contacts", middlewares.verifyAccessToken, controller.contacts);
 
 module.exports = route;

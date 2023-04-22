@@ -3,4 +3,5 @@ export * from "./useClickOutside";
 export * from "./useDebounce";
 export * from "./useWindowSize";
 export * from "./useLockScroll";
-export * from "./useHandleScrollAtBottom";
+export * from "./useStateFriends";
+export * from "./usePosts";

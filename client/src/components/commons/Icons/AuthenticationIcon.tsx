@@ -1,12 +1,19 @@
-export const CloseIcon = () => {
+import { FC } from "react";
+
+interface IconProps {
+  width?: number;
+  height?: number;
+}
+
+export const CloseIcon: FC<IconProps> = ({ width = 24, height = 24 }) => {
   return (
     <svg
       stroke="currentColor"
       fill="none"
       strokeWidth="0"
       viewBox="0 0 24 24"
-      height="24"
-      width="24"
+      height={height}
+      width={width}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

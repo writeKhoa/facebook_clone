@@ -28,8 +28,8 @@ export const MenuNavRight = () => {
     <svg
       fill="currentColor"
       viewBox="0 0 44 44"
-      width="1em"
-      height="1em"
+      width={20}
+      height={20}
       className="x1lliihq x1k90msu x2h7rmj x1qfuztq x198g3q0 x1qx5ct2 xw4jnvo"
     >
       <circle cx="7" cy="7" r="6"></circle>

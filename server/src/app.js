@@ -1,27 +1,31 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { connectMongodb } = require("./v1/helpers");
 
-const app = express();
-
+const nodeEnv = process.env.NODE_ENV;
 const origins =
-  process.env.NODE_ENV === "development"
+  nodeEnv === "development"
     ? [
         "http://127.0.0.1:5173",
         "http://locahlhost:5173",
         "http://localhost:8080",
-        "http://127.0.0.1:8080"
+        "http://127.0.0.1:8080",
       ]
     : [process.env.CLIENT_URL];
 
-if (process.env.NODE_ENV === "development") {
+dotenv.config();
+
+const app = express();
+if (nodeEnv === "development") {
   app.use(morgan("dev"));
 }
 
-app.use(express.json());
+app.use("/public", express.static("public"));
+app.use(express.json({ limit: "25mb" }));
+app.use(express.urlencoded({ limit: "25mb", extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
@@ -33,7 +37,21 @@ app.use(
 
 connectMongodb();
 
+function wait() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("resolved");
+    }, 4000);
+  });
+}
+
 app.use("/api/v1", require("./v1/routes"));
+app.use("/api/v1/test/v", async (req, res) => {
+  try {
+    await wait();
+    return res.status(200).json({ data: "co cai gi dau maf lay" });
+  } catch (error) {}
+});
 
 app.use("*", (req, res) => {
   return res.status(404).json({

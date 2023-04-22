@@ -1,7 +1,6 @@
 export * from "./Home.NavLeft";
-export * from "./Home.Post";
 export * from "./commons";
-export * from "./Profile";
 export * from "./gif";
+export * from "./posts";
 
-// export * from "./ImgLinks";
+// export * from "./images_links";

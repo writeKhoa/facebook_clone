@@ -1,6 +1,4 @@
-import NavLeft from "./NavLeft";
-import NavMid from "./NavMid";
-import NavRight from "./NavRight";
+import { NavLeft, NavMid, NavRight } from "./sub";
 
 const WasLogged = () => {
   return (

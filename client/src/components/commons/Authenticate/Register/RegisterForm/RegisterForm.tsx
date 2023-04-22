@@ -100,6 +100,10 @@ const RegisterForm = () => {
       if (typeof error === "string") {
         setErrorMsg(error);
       }
+      const myError: any = error;
+      if (typeof myError?.response.data.error === "string") {
+        setErrorMsg(myError.response.data.error);
+      }
     } finally {
       setIsLoading(false);
     }

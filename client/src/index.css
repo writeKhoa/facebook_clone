@@ -40,8 +40,16 @@
   }
 
   /* filter icon */
-  .filter-primary {
+  .filter-disabled {
+    -webkit-filter: grayscale(100%);
+  }
+  /* .filter-primary {
     fill: #1877f2;
+  } */
+  .filter-primary {
+    -webkit-filter: invert(40%) sepia(52%) saturate(200%) saturate(200%)
+      saturate(200%) saturate(189%) hue-rotate(191deg) brightness(103%)
+      contrast(102%);
   }
   .filter-white {
     -webkit-filter: invert(100%);
@@ -97,5 +105,31 @@
   .border-page-auth {
     border-width: 1px;
     border-color: #ccd0d5;
+  }
+
+  /* scrollbar */
+  .hidden-scrollbar {
+    -ms-overflow-style: none;
+    overflow: auto;
+    scrollbar-width: none;
+  }
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* my box shadow */
+  .my-boxshadow {
+    -webkit-box-shadow: 0px 0px 25px -7px rgba(0, 0, 0, 0.77);
+    -moz-box-shadow: 0px 0px 25px -7px rgba(0, 0, 0, 0.77);
+    box-shadow: 0px 0px 25px -7px rgba(0, 0, 0, 0.77);
+  }
+
+  .limit-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: nowrap; /* Ngăn ngừa xuống dòng */
+    overflow: hidden; /* Ẩn văn bản vượt quá giới hạn */
+    text-overflow: ellipsis;
   }
 }

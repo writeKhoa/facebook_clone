@@ -9,3 +9,5 @@ export * from "./Page.Friends.Icon";
 export * from "./Page.Home.Main.Icon";
 export * from "./Page.Profile.Icon";
 export * from "./Header.NotLogged";
+export * from "./Post.Icon";
+export * from "./EditorState.Icon";

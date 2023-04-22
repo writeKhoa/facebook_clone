@@ -1,3 +1,3 @@
 module.exports = {
-    connectMongodb: require('./connect_mongodb')
-}
+  connectMongodb: require("./connect_mongodb"),
+};

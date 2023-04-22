@@ -2,12 +2,13 @@ import routes from "@/configs";
 import { useAuth } from "@/hooks";
 import DefaultLayout from "@/layouts";
 import { Route as RouteModel } from "@/models";
-import { useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const { reLogin, isReLogin, user } = useAuth();
+  const { reLogin, user } = useAuth();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   if (localStorage.theme === "dark" && !!user) {
     document.documentElement.classList.add("dark");
@@ -15,14 +16,19 @@ function App() {
     document.documentElement.classList.remove("dark");
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const checkReLogin = async () => {
-      if (isReLogin) {
+      if (isLoading) {
         await reLogin();
+        setIsLoading(false);
       }
     };
     checkReLogin();
   }, []);
+
+  if (isLoading) {
+    return <div className="w-full h-full bg-space dark:bg-spaceDark"></div>;
+  }
 
   return (
     <>

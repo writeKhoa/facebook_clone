@@ -13,3 +13,11 @@ export interface QuickInfo {
   fullName: string;
   id: string;
 }
+
+export interface User {
+  _id: string;
+  avatarUrl: string;
+  mediumAvatarUrl: string;
+  fullName: string;
+  firstName: string;
+}

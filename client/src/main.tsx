@@ -1,19 +1,19 @@
+import "@/index.css";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider } from "./store";
-import "@/index.css";
-import "@/assets/styles/scrollbar-body.css";
-import "@/assets/styles/scrollbar-secondary.css";
 import App from "./App";
+import { AuthProvider, PostsStoreProvider } from "./store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
 root.render(
-  <AuthProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </AuthProvider>
+  <BrowserRouter>
+    <AuthProvider>
+      <PostsStoreProvider>
+        <App />
+      </PostsStoreProvider>
+    </AuthProvider>
+  </BrowserRouter>
 );
